@@ -1,1 +1,1 @@
-"Hola amigo esta es una prueba"
+print ("Hola")
