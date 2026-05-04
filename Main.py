@@ -79,4 +79,4 @@ def sistema():
         print("Error:", e)
 
 if __name__ == "__main__":
-    sistema
+    sistema() 
