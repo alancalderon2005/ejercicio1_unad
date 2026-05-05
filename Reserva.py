@@ -20,7 +20,7 @@ class Reserva:
             raise EstadoReservaError("N/A", self.estado, "Cancelar")
         self.estado = "Cancelado"
     
-    def calcular_total(self, impuesto=0, descuento=0):
+    def calcular_total(self, impuesto: float =0, descuento: float=0):
         try:
             costo=self.servicio.calcular_costo(self.duracion)
         except Exception as e:

@@ -14,16 +14,17 @@ def sistema():
     try:
         c1 = Cliente("Alan", "alan@mail.com")
         clientes.append(c1)
-        print("Cliente creado:", c1)
+        print("\nCliente creado:", c1)
     except SistemaError as e:
-        print("Error:", e)
+        print("\nError:", e)
+        return
 
     # 2 ERROR
     try:
-        c2 = Cliente("", "malcorreo")
+        c2 = Cliente("Luis", "malcorreo")
         clientes.append(c2)
     except SistemaError as e:
-        print("Error:", e)
+        print("\nError:", e)
 
     # 3
     try:
@@ -32,51 +33,52 @@ def sistema():
         s3 = Asesorias("Consultoría", 100)
         servicios = [s1,s2,s3]
         for s in servicios:
-            print("Servicio:", s.descripcion())
+            print("\nServicio:", s.descripcion())
     except SistemaError as e:
-        print("Error:", e)
+        print("\nError:", e)
+        return
 
     # 4
     try:
-        r1 = Reserva(c1, s1, 2)
+        r1 = Reserva(c1, s1, 2) 
         reservas.append(r1)
-        print("Reserva creada:", r1)
+        print("\nReserva creada:", r1)
         r1.confirmar()
         print("Reserva confirmada:", r1)
-        total = r1.calcular_total(0.19, 5)
+        total = r1.calcular_total(0.19, 5) 
         print("Total reserva:", total)
     except SistemaError as e:
-        print("Error:", e)
+        print("\nError:", e)
 
     # 5 ERROR
     try:
-        r2 = Reserva(c1, s2, -5)
+        r2 = Reserva(c1, s2, -5) 
     except SistemaError as e:
-        print("Error:", e)
+        print("\nError:", e)
     
     # 6
     try:
-        r3 = Reserva(c1, s3, 3)
+        r3 = Reserva(c1, s3, 3) 
         reservas.append(r3)
-        print("Reserva creada:", r3)
+        print("\nReserva creada:", r3)
 
         r3.cancelar()
         print("Reserva cancelada:", r3)
 
         r3.confirmar()  # ERROR
     except SistemaError as e:
-        print("Error:", e)
+        print("\nError:", e)
 
     # 7
     try:
-        r4 = Reserva(c1, s2, 1)
+        r4 = Reserva(c1, s2, 1) 
         reservas.append(r4)
-        print("Reserva creada:", r4)
+        print("\nReserva creada:", r4)
 
         total = r4.calcular_total()
         print("Total reserva:", total)
     except SistemaError as e:
-        print("Error:", e)
+        print("\nError:", e)
 
 if __name__ == "__main__":
     sistema() 

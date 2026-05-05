@@ -9,26 +9,26 @@ class Servicio(ABC):
         self.precio_base = precio_base
     
     @abstractmethod
-    def calcular_costo(self, tiempo):
+    def calcular_costo(self, tiempo: float) -> float:
         pass
     @abstractmethod
-    def descripcion(self):
+    def descripcion(self) -> str:
         pass
 
 class ReservaSala(Servicio):
-    def calcular_costo(self, horas):
-        return self.precio_base * horas
+    def calcular_costo(self, tiempo: float):
+        return self.precio_base * tiempo
     def descripcion(self):
         return "Reserva de sala por horas"
 
 class AlquilarEquipo(Servicio):
-    def calcular_costo(self, dias):
-        return self.precio_base * dias
+    def calcular_costo(self, tiempo: float):
+        return self.precio_base * tiempo
     def descripcion(self):
         return "Alquiler de equipos por días"
 
 class Asesorias(Servicio):
-    def calcular_costo(self, horas):
-        return self.precio_base * horas * 1.2
+    def calcular_costo(self, tiempo: float):
+        return self.precio_base * tiempo * 1.2
     def descripcion(self):
         return "Asesoria especializada"
