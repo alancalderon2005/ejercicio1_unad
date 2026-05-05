@@ -1,3 +1,7 @@
+#Autoria propia de: 
+#Luis Eduardo Guerrero Banda | Alan Joseph Calderón Farfán
+#Grupo: 336
+
 from Cliente import Cliente
 from Servicio import ReservaSala, AlquilarEquipo, Asesorias
 from Reserva import Reserva
