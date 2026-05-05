@@ -86,6 +86,7 @@ def sistema():
         clientes.append(c3)
     except SistemaError as e:
         print("\nError:", e)
+        return
     else:
         print("\nCliente registrado exitosamente:", c3)
         
