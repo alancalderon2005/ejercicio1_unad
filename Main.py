@@ -4,6 +4,18 @@ from Reserva import Reserva
 from Excepciones import SistemaError
 from Logger import registrar_log
 
+def separador(titulo=""):
+    print("\n"+"="*50)
+    if titulo:
+        print(f"{titulo}")
+        print("="*50)
+
+def mostrar_cliente(cliente):
+    print(f"[CLIENTE] Nombre: {cliente.get_nombre()} | Email: {cliente.get_email()}")
+
+def mostrar_reserva(reserva):
+    print(f"[RESERVA] Cliente: {reserva.cliente.get_nombre()} | Servicio: {reserva.servicio.nombre} | Duración: {reserva.estado}")
+
 def sistema():
     
     clientes = []
@@ -14,7 +26,8 @@ def sistema():
     try:
         c1 = Cliente("Alan", "alan@mail.com")
         clientes.append(c1)
-        print("\nCliente creado:", c1)
+        separador("REGISTRO CLIENTE VÁLIDO")
+        mostrar_cliente(c1)
     except SistemaError as e:
         print("\nError:", e)
         return
@@ -24,6 +37,7 @@ def sistema():
         c2 = Cliente("Luis", "malcorreo")
         clientes.append(c2)
     except SistemaError as e:
+        separador("REGISTRO CLIENTE INVÁLIDO")
         print("\nError:", e)
 
     # 3 Creacion de servicios
@@ -32,8 +46,9 @@ def sistema():
         s2 = AlquilarEquipo("Proyector", 30)
         s3 = Asesorias("Consultoría", 100)
         servicios = [s1,s2,s3]
+        separador("CREACIÓN DE SERVICIOS")
         for s in servicios:
-            print("\nServicio:", s.descripcion())
+            print(f"[SERVICIO] {s.descripcion()}")
     except SistemaError as e:
         print("\nError:", e)
         return
@@ -42,11 +57,12 @@ def sistema():
     try:
         r1 = Reserva(c1, s1, 2) 
         reservas.append(r1)
-        print("\nReserva creada:", r1)
+        separador("RESERVA EXITOSA")
+        mostrar_reserva(r1)
         r1.confirmar()
-        print("Reserva confirmada:", r1)
+        print("Reserva confirmada")
         total = r1.calcular_total(0.19, 5) 
-        print("Total reserva:", total)
+        print(f"Total: {total}")
     except SistemaError as e:
         print("\nError:", e)
 
@@ -54,18 +70,20 @@ def sistema():
     try:
         r2 = Reserva(c1, s2, -5) 
     except SistemaError as e:
+        separador("ERROR RESERVA - DURACIÓN")
         print("\nError:", e)
     
     # 6  Cancelar y confirmar reserva cancelada
     try:
         r3 = Reserva(c1, s3, 3) 
         reservas.append(r3)
-        print("\nReserva creada:", r3)
+        separador("CANCELAR Y ERROR AL CONFIRMAR")
+        mostrar_reserva(r3)
 
         r3.cancelar()
-        print("Reserva cancelada:", r3)
+        print("Reserva cancelada:")
 
-        r3.confirmar()  # ERROR
+        r3.confirmar() # ERROR
     except SistemaError as e:
         print("\nError:", e)
 
@@ -73,10 +91,11 @@ def sistema():
     try:
         r4 = Reserva(c1, s2, 1) 
         reservas.append(r4)
-        print("\nReserva creada:", r4)
+        separador("RESERVA SIN IMPUESTOS")
+        mostrar_reserva(r4)
 
         total = r4.calcular_total()
-        print("Total reserva:", total)
+        print("Total: {total}")
     except SistemaError as e:
         print("\nError:", e)
         
@@ -88,7 +107,8 @@ def sistema():
         print("\nError:", e)
         return
     else:
-        print("\nCliente registrado exitosamente:", c3)
+        separador("CLIENTE REGISTRADO")
+        mostrar_cliente(c3)
         
     # 9 - Servicio con precio negativo 
     try:
@@ -96,6 +116,7 @@ def sistema():
         r5 = Reserva(c3, s4, 2)
         reservas.append(r5)
     except SistemaError as e:
+        separador("SERVICIO INVÁLIDO")
         print("\nError:", e)
     finally:
         print("\nIntento de reserva finalizado")
@@ -108,6 +129,7 @@ def sistema():
         c4 = Cliente("Luis Copia", "luis@mail.com")
         clientes.append(c4)
     except SistemaError as e:
+        separador("CLIENTE DUPLICADO")
         print("\nError:", e)
     else:
         print("\nCliente registrado:", c4)
@@ -115,4 +137,4 @@ def sistema():
         print(f"\nTotal clientes registrados: {len(clientes)}")
         
 if __name__ == "__main__":
-    sistema() 
+    sistema()

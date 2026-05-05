@@ -1,3 +1,13 @@
 [2026-05-04 17:43:33] Error: Dato invalido en el campo 'nombre': ''
 [2026-05-04 17:43:33] Error: Reserva invalida: Duración Inválida
 [2026-05-04 17:43:33] Error: No se puede 'Confirmar' la reserva 'N/A' porque su estado es 'Cancelado'
+[2026-05-04 19:34:39] Error: Dato invalido en el campo 'email': 'malcorreo'
+[2026-05-04 19:34:39] Error: Reserva invalida: Duración Inválida
+[2026-05-04 19:34:39] Error: No se puede 'Confirmar' la reserva 'N/A' porque su estado es 'Cancelado'
+[2026-05-04 19:34:39] Error: Parametro invalido en 'Sala Invalida': Precio debe ser mayor a 0
+[2026-05-04 19:34:39] Error: El cliente luis@mail.com ya esta registrado
+[2026-05-04 20:03:10] Error: Dato invalido en el campo 'email': 'malcorreo'
+[2026-05-04 20:03:10] Error: Reserva invalida: Duración Inválida
+[2026-05-04 20:03:11] Error: No se puede 'Confirmar' la reserva 'N/A' porque su estado es 'Cancelado'
+[2026-05-04 20:03:11] Error: Parametro invalido en 'Sala Invalida': Precio debe ser mayor a 0
+[2026-05-04 20:03:11] Error: El cliente luis@mail.com ya esta registrado
