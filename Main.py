@@ -4,11 +4,9 @@ from Reserva import Reserva
 from Excepciones import SistemaError
 from Logger import registrar_log
 
-def separador(titulo=""):
-    print("\n"+"="*50)
+def separador(titulo="\n"):
     if titulo:
-        print(f"{titulo}")
-        print("="*50)
+        print(f"\n{titulo}")
 
 def mostrar_cliente(cliente):
     print(f"[CLIENTE] Nombre: {cliente.get_nombre()} | Email: {cliente.get_email()}")
@@ -29,7 +27,7 @@ def sistema():
         separador("REGISTRO CLIENTE VÁLIDO")
         mostrar_cliente(c1)
     except SistemaError as e:
-        print("\nError:", e)
+        print("Error:", e)
         return
 
     # 2 ERROR Registro de cliente invalido
@@ -38,7 +36,7 @@ def sistema():
         clientes.append(c2)
     except SistemaError as e:
         separador("REGISTRO CLIENTE INVÁLIDO")
-        print("\nError:", e)
+        print("Error:", e)
 
     # 3 Creacion de servicios
     try:
@@ -50,7 +48,7 @@ def sistema():
         for s in servicios:
             print(f"[SERVICIO] {s.descripcion()}")
     except SistemaError as e:
-        print("\nError:", e)
+        print("Error:", e)
         return
 
     # 4 Reserva exitosa con impuesto y descuento
@@ -64,14 +62,14 @@ def sistema():
         total = r1.calcular_total(0.19, 5) 
         print(f"Total: {total}")
     except SistemaError as e:
-        print("\nError:", e)
+        print("Error:", e)
 
     # 5 ERROR Reserva con duracion invalida
     try:
         r2 = Reserva(c1, s2, -5) 
     except SistemaError as e:
         separador("ERROR RESERVA - DURACIÓN")
-        print("\nError:", e)
+        print("Error:", e)
     
     # 6  Cancelar y confirmar reserva cancelada
     try:
@@ -85,7 +83,7 @@ def sistema():
 
         r3.confirmar() # ERROR
     except SistemaError as e:
-        print("\nError:", e)
+        print("Error:", e)
 
     # 7 Reserva sin impuesto ni descuento
     try:
@@ -97,14 +95,14 @@ def sistema():
         total = r4.calcular_total()
         print("Total: {total}")
     except SistemaError as e:
-        print("\nError:", e)
+        print("Error:", e)
         
     # 8 - Cliente valido  
     try:
         c3 = Cliente("Luis", "luis@mail.com")
         clientes.append(c3)
     except SistemaError as e:
-        print("\nError:", e)
+        print("Error:", e)
         return
     else:
         separador("CLIENTE REGISTRADO")
@@ -117,9 +115,9 @@ def sistema():
         reservas.append(r5)
     except SistemaError as e:
         separador("SERVICIO INVÁLIDO")
-        print("\nError:", e)
+        print("Error:", e)
     finally:
-        print("\nIntento de reserva finalizado")
+        print("Intento de reserva finalizado")
         
     # 10 - Registro de cliente duplicado  
     try:
@@ -130,9 +128,9 @@ def sistema():
         clientes.append(c4)
     except SistemaError as e:
         separador("CLIENTE DUPLICADO")
-        print("\nError:", e)
+        print("Error:", e)
     else:
-        print("\nCliente registrado:", c4)
+        print("Cliente registrado:", c4)
     finally:
         print(f"\nTotal clientes registrados: {len(clientes)}")
         
