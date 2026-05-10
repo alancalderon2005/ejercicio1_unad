@@ -28,7 +28,7 @@ contiene 10 simulaciones de diferentes eventos para probar la ejecuacion del pro
 
 - Python 3.8 o superior
 - No requiere librerías externas
-- 
+
 ## Clonar el repositorio
 bash
 
