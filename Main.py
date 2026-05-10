@@ -97,7 +97,7 @@ def sistema():
         mostrar_reserva(r4)
 
         total = r4.calcular_total()
-        print("Total: {total}")
+        print(f"Total: {total}")
     except SistemaError as e:
         print("Error:", e)
         
